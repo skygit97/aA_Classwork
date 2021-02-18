@@ -38,7 +38,7 @@ def per_capita_gdp
   execute(<<-SQL)
     SELECT
       name, 
-      (gdp/population) AS per_capita_gdp
+      gdp/population AS per_capita_gdp
     FROM 
       countries
     WHERE 
@@ -93,7 +93,7 @@ def just_the_right_size
   execute(<<-SQL)
     SELECT 
       name,
-      (area/1000) AS area
+      area/1000 AS area_per_km2
     FROM 
       countries
     WHERE
