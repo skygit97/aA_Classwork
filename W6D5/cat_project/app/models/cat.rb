@@ -10,19 +10,19 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#
+
 require 'action_view'
 
 class Cat < ApplicationRecord
   include ActionView::Helpers::DateHelper
 
-  CAT_COLORS = ['orange', 'black', 'white', 'brownn'].freeze
+  CAT_COLORS = ['Orange', 'White', 'Black', 'Gray']
 
-  validates :birth_date, :color, :name, :sex, presence: true
-  validates :color, inclusion: CAT_COLORS
-  validates :sex, inclusion: ['M', 'F']
+  validates :birth_date, :name, presence: true
+  validates :color, presence: true, inclusion: CAT_COLORS
+  validates :sex, presence: true, inclusion: {in: ['M', 'F']}
 
-  def age
+   def age
     time_ago_in_words(birth_date)
   end
 end
