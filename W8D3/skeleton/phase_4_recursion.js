@@ -6,7 +6,7 @@ function range(start, end) {
   let array = range(start, end - 1);
   array.push(end);
   return array;
-};
+}
 
 // console.log(range(1,5));
 
@@ -19,11 +19,11 @@ function sumRec(arr) {
   // arr.shift();
   // return sumRec(arr) + sumNum;
 
-  let sumNum = arr[arr.length - 1]
+  let sumNum = arr[arr.length - 1];
   arr.pop();
   return sumRec(arr) + sumNum;
   
-};
+}
 
 arr = [1,2,3,4];
 
@@ -48,8 +48,32 @@ function exponent(base, exp) {
     let half = exponent(base, (exp - 1) / 2);
     return half * half * base;
   }
-};
+}
 
 console.log(exponent(2,4));
 // console.log(exponent(2,-4));
 
+
+function fib(n) {
+  if (n === 1) {
+    return [1];
+  } 
+
+  if (n === 2) {
+    return [1, 1];
+  }
+
+  let arr = fib(n - 1);
+  arr.push(arr[arr.length - 1] + arr[arr.length - 2]);
+  return arr;
+}
+
+console.log(fib(4));
+
+function deepDup(arr) {
+  let newArr = [];
+
+  newArr.forEach(function(ele) {
+    
+  })
+}
