@@ -1,22 +1,19 @@
 Array.prototype.myEach = function(funct) {
   for (let i = 0; i < this.length; i++) {
-    funct(this[i])
+    funct(this[i]);
   }
-};
-
-function mult(n) {
-  return n*2;
 }
 
-array = [1,2,3];
+debugger
+
+let array = [1,2,3]
 // array.myEach((ele) => {console.log(ele*2)});
 // array.myEach(ele => console.log(ele*2))
-
 Array.prototype.myMap = function(funct) {
   let arr = [];
   this.myEach(ele => arr.push(funct(ele)));
   return arr;
-};
+}
 
 
 // array.myMap((ele) => {console.log(ele*0)});
@@ -37,7 +34,7 @@ Array.prototype.myReduce = function(funct, initialValue) {
 
   return final;
 
-};
+}
 
 // console.log([1, 2, 3].myReduce(function(acc, el) {
 //   return acc + el;

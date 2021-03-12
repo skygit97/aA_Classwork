@@ -1,26 +1,32 @@
 Array.prototype.uniq = function() {
   let arr = [];
-  for(let i = 0; i < this.length; i++) {
-    if(arr.includes(this[i]) === false) {
-      arr.push(this[i]);
+
+  this.forEach(el => {
+    if (!arr.includes(el)) {
+      arr.push(el);
     }
-  }
+  });
+
   return arr;
 };
 
 console.log([1,2,2,3,3,3].uniq());
 
 Array.prototype.twoSum = function() {
-  let arr = [];
-  for(let i = 0; i < this.length; i++) {
-    for(let j = i + 1; j < this.length; j++) {
-      if(this[i] + this[j] === 0) {
-        arr.push([i, j]);
+  let pairs = [];
+
+  for (let i = 0; i < this.length; i++) {
+    for (let j = i + 1; j < this.length; j++) {
+      if (this[i] + this[j] === 0) {
+        pairs.push([i, j]);
       }
     }
   }
-  return arr;
+
+  return pairs;
 };
+
+
 
 console.log([0,2,3,-2,3].twoSum());
 
