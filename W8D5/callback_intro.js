@@ -38,8 +38,9 @@ class Clock {
     } else {
       this.time[2]++;
     }
-      console.clear();
-      this.printTime();
+
+    console.clear();
+    this.printTime();
   }
 }
 
