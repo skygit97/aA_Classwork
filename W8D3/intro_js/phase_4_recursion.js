@@ -1,79 +1,86 @@
 function range(start, end) {
-  if (start === end) {
-    return [start];
-  }
+  if (start === end) return [start];
 
-  let array = range(start, end - 1);
-  array.push(end);
-  return array;
+  let arr = range(start, end - 1);
+  arr.push(end);
+  return arr;
 }
 
 // console.log(range(1,5));
 
 function sumRec(arr) {
-  if (arr.length === 0) {
-    return 0;
-  }
+  if (arr.length === 0) return 0;
 
-  // let sumNum = arr[0];
-  // arr.shift();
-  // return sumRec(arr) + sumNum;
-
-  let sumNum = arr[arr.length - 1];
-  arr.pop();
-  return sumRec(arr) + sumNum;
-  
+  let lastNum = arr[arr.length - 1];
+  return sumRec(arr.slice(0, arr.length - 1)) + lastNum;
 }
 
-arr = [1,2,3,4];
-
-// console.log(sumRec(arr));
+// let nums = [1,2,3,4];
+// console.log(sumRec(nums));
 
 function exponent(base, exp) {
-  if (exp === 0) {
-    return 1;
-  }
-  // if (exp > 0) {
-  // return base * exponent(base, exp - 1);
-  // } 
-  // else {
-  // return 1.0/(base * exponent(base, exp + 1));
-  // }
+  if (exp < 0) return (1 / exponent(base, -exp));
+  if (exp === 0) return 1;
+  return base * exponent(base, exp - 1);
+}
+
+// console.log(exponent(2, 4));
+// console.log(exponent(2, -4));
+
+function exponent2(base, exp) {
+  if (exp < 0) return (1 / exponent(base, -exp));
+  if (exp === 0) return 1;
 
   if (exp % 2 === 0) {
-    let half = exponent(base, exp / 2);
+    half = exponent2(base, exp / 2);
     return half * half;
-  }
-  else {
-    let half = exponent(base, (exp - 1) / 2);
+  } else {
+    half = exponent2(base, (exp - 1) / 2);
     return half * half * base;
   }
 }
 
-console.log(exponent(2,4));
-// console.log(exponent(2,-4));
-
+// console.log(exponent2(2, 4));
+// console.log(exponent2(2, -4));
 
 function fib(n) {
-  if (n === 1) {
-    return [1];
-  } 
+  if (n <= 0) return [];
+  if (n === 1) return [1];
+  if (n === 2) return [1, 1];
 
-  if (n === 2) {
-    return [1, 1];
-  }
-
-  let arr = fib(n - 1);
-  arr.push(arr[arr.length - 1] + arr[arr.length - 2]);
-  return arr;
+  let fibs = fib(n - 1);
+  fibs.push(fibs[fibs.length - 1] + fibs[fibs.length - 2]);
+  return fibs;
 }
 
-console.log(fib(4));
+// console.log(fib(5));
 
 function deepDup(arr) {
-  let newArr = [];
+  if (!(arr instanceof Array)) return arr;
 
-  newArr.forEach(function(ele) {
-    
-  })
+  return arr.map(el => deepDup(el));
 }
+
+// console.log(deepDup([[2], 3]));
+// console.log(deepDup([1, 2, 3, 5]));
+
+function bsearch(arr, target) {
+  if (arr.length === 0) return -1;
+
+  let midIdx = Math.floor(arr.length / 2);
+  let mid = arr[midIdx];
+
+  if (target === mid) {
+    return midIdx;
+  } else if (target < mid) {
+    let left = arr.slice(0, midIdx);
+    return bsearch(left, target);
+  } else {
+    let right = arr.slice(midIdx + 1);
+    let index = bsearch(right, target);
+    return (index === -1) ? -1 : index + midIdx + 1;
+  }
+}
+
+// console.log(bsearch([1, 2, 3], 3));
+// console.log(bsearch([1, 2, 3], 2.5));
