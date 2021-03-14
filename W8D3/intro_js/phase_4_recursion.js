@@ -84,3 +84,42 @@ function bsearch(arr, target) {
 
 // console.log(bsearch([1, 2, 3], 3));
 // console.log(bsearch([1, 2, 3], 2.5));
+
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+
+  let mid = Math.floor(arr.length / 2);
+
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+}
+
+function merge(left, right) {
+  let arr = [];
+
+  while (left.length && right.length) {
+    if (left[0] <= right[0]) {
+      arr.push(left.shift());
+    } else {
+      arr.push(right.shift());
+    }
+  }
+
+  return arr.concat(left, right);
+}
+
+// console.log(mergeSort([4, 5, 2, 3, 1]));
+
+function subsets(arr) {
+  if (arr.length === 0) return [[]];
+  
+  let first = [arr[0]];
+  let without = subsets(arr.slice(1));
+
+  let withFirst = without.map(el => first.concat(el));
+
+  return without.concat(withFirst);
+}
+
+console.log(subsets([1, 3, 5]));
