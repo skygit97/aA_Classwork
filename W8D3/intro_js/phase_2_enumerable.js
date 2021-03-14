@@ -1,45 +1,30 @@
-Array.prototype.myEach = function(funct) {
-  for (let i = 0; i < this.length; i++) {
-    funct(this[i]);
+Array.prototype.myEach = function(cb) {
+  for (let i = 0; i < this.length; i ++) {
+    cb(this[i]);
   }
-}
+};
 
-debugger
+Array.prototype.myMap = function(cb) {
+  const mapped = [];
+  this.myEach(el => mapped.push(cb(el)));
+  return mapped;
+};
 
-let array = [1,2,3]
-// array.myEach((ele) => {console.log(ele*2)});
-// array.myEach(ele => console.log(ele*2))
-Array.prototype.myMap = function(funct) {
-  let arr = [];
-  this.myEach(ele => arr.push(funct(ele)));
-  return arr;
-}
+let arr = [1,2,3];
+console.log(arr.myMap(el => el * 2));
 
-
-// array.myMap((ele) => {console.log(ele*0)});
-
-
-Array.prototype.myReduce = function(funct, initialValue) {
-
-  // check if no initialValue, then this[0]
+Array.prototype.myReduce = function(cb, initialValue) {
   let arr = this;
 
   if (initialValue === undefined) {
-    initialValue = arr[0];
-    arr.shift();
+    initialValue = this[0];
+    arr = this.slice(1);
   }
 
-  let final = initialValue;
-  arr.myEach(ele => final = funct(final, ele));
+  let result = initialValue;
+  arr.myEach(el => result = cb(result, el));
+  return result;
+};
 
-  return final;
-
-}
-
-// console.log([1, 2, 3].myReduce(function(acc, el) {
-//   return acc + el;
-// }));
-
-// console.log([1, 2, 3].myReduce(function(acc, el) {
-//   return acc + el;
-// }, 25));
+console.log([1, 3, 3].myReduce((prod, el) => prod * el));
+console.log([1, 2, 3].myReduce((sum, el) => sum * el));
