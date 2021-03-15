@@ -36,7 +36,7 @@ Asteroid.prototype.travels = function () {
 
 let frisbee = new MovingObject("frisbee");
 console.log(frisbee);
-console.log(frisbee.moves());
+frisbee.moves();
 // console.log(frisbee.travels());
 // console.log(frisbee.passengers());
 

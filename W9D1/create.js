@@ -40,8 +40,8 @@ Asteroid.prototype.travels = function () {
 
 let asteroid = new Asteroid("SS", "100");
 console.log(asteroid);
-console.log(asteroid.moves());
-console.log(asteroid.travels());
+asteroid.moves();
+asteroid.travels();
 // console.log(asteroid.passengers());
 
 
