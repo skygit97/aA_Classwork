@@ -1,6 +1,6 @@
-const allTodos = ({ todo }) => (
+export const allTodos = ({ todos }) => (
   // Object.keys(todo).map(id => todo[id])
-  Object.values(todo)
+  Object.values(todos)
 );
 
-export default allTodos;
+//export default allTodos;

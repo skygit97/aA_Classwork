@@ -6,7 +6,7 @@ import { receiveTodo, receiveTodos, removeTodo } from "./actions/todo_actions";
 import { receiveStep, receiveSteps, removeStep } from "./actions/step_actions";
 
 import Root from './components/root';
-import allTodos from './reducers/selectors';
+import { allTodos } from './reducers/selectors';
 
 document.addEventListener("DOMContentLoaded", () => {
   const content = document.getElementById("content");
