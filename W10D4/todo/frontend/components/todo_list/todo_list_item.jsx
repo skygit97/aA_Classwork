@@ -14,6 +14,7 @@ export class TodoListItem extends React.Component {
   }
 
   updateDone(e) {
+    e.preventDefault();
     const toggleTodo = Object.assign({}, this.props.todo, {done: !this.props.todo.done});
     this.props.receiveTodo(toggleTodo);
   }
