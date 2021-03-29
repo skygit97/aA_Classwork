@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --mode=development --watch"
+    "postinstall": "webpack",
+    "webpack": "webpack --mode=development --watch"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,10 @@
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
+    "logger": "0.0.1",
     "react-redux": "^7.2.3",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   }
 }

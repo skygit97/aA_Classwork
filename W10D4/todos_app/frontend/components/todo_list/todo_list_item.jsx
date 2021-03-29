@@ -8,7 +8,6 @@ export class TodoListItem extends React.Component {
       done: this.props.todo.done
     }
 
-    console.log(this.state);
     this.updateDone = this.updateDone.bind(this);
     // this.removeTodo = this.removeTodo.bind(this);
   }

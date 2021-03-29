@@ -11,7 +11,6 @@ class TodoForm extends React.Component{
       body: "",
       done: false
     }
-    console.log(this.state.id);
 
     this.updateTitle = this.updateTitle.bind(this);
     this.updateBody = this.updateBody.bind(this);
@@ -21,7 +20,6 @@ class TodoForm extends React.Component{
 
   updateTitle(e) {
     this.setState({ title: e.target.value });
-    console.log(e.target.value);
   }
 
   updateBody(e) {

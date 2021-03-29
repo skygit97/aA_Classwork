@@ -7,9 +7,10 @@ import { receiveStep, receiveSteps, removeStep } from "./actions/step_actions";
 
 import Root from './components/root';
 import { allTodos } from './reducers/selectors';
+import { fetchTodos } from './util/todo_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
-  const content = document.getElementById("content");
+  const root = document.getElementById("root");
   const store = configureStore();
   
   window.store = store;
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.receiveSteps = receiveSteps;
   window.removeStep = removeStep;
   window.allTodos = allTodos;
+  window.fetchTodos = fetchTodos;
   
-  ReactDOM.render(<Root store={store}/>, content);
+  ReactDOM.render(<Root store={store}/>, root);
 });
