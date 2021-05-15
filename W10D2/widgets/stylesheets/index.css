@@ -1,0 +1,77 @@
+.clock-container {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	width: 600px;
+}
+
+.clock {
+	background-color: orange;
+	color: white;
+	font-size: 35px;
+	outline: 2px solid black;
+}
+
+.clock-container h1 {
+	margin-bottom: 10px;
+}
+
+.clock-container p {
+	margin: 15px;
+	margin-left: 24px;
+	margin-right: 24px;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* Tabs */
+
+.tabs-container {
+	margin-left: 50px;
+	width: 250px;
+}
+
+.tabs-container h1 {
+	margin-bottom: 10px;
+}
+
+.tab-header {
+	display: flex;
+	justify-content: space-evenly;
+	font-size: 20px;
+}
+
+.tab-header li {
+	list-style-type: none;
+	width: 100%;
+	border-top: 2px solid black;
+	border-left: 2px solid black;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding: 4px 0px 4px 0px;
+	text-align: center;
+	cursor: pointer;
+	background-color: lightblue;
+}
+
+.tab-header li:last-child {
+	border-right: 2px solid black;
+}
+
+.tab-content {
+	text-align: center;
+	background-color: lightblue;
+	border-right: 2px solid black;
+	border-left: 2px solid black;
+	border-bottom: 2px solid black;
+
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: 24px;
+}
+.nonactive {
+	border-bottom: 2px solid black;
+}
