@@ -1,0 +1,125 @@
+/* PHASE 12: Modal */
+
+.modal {
+	display: none;
+}
+
+.modal.is-open {
+	display: block;
+}
+
+.modal-background {
+	position: fixed;
+	background: rgba(0, 0, 0, 0.7);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+}
+
+.modal-form {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 360px;
+	padding: 20px;
+	background: lightblue;
+	z-index: 2;
+	border-radius: 5px;
+	border: 1px solid #000;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.modal-form button,
+.remember-me {
+	cursor: pointer;
+}
+
+.modal-form button,
+input {
+	border-radius: 5px;
+}
+
+.close-btn {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	font-size: 36px;
+	line-height: 1;
+}
+
+.close-btn:hover {
+	color: #f00;
+}
+
+.modal-form > h1 {
+	font-size: 36px;
+	font-weight: 300;
+	line-height: 1;
+}
+
+.modal-form > p {
+	margin-bottom: 20px;
+}
+
+.modal-form > label {
+	margin: 0 0 20px 0;
+}
+
+input[type="text"],
+input[type="password"] {
+	margin-top: 5px;
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 10px;
+	width: calc(100% - 22px);
+}
+
+input[type="checkbox"] {
+	zoom: 1.5;
+	vertical-align: middle;
+}
+
+.remember-me > span {
+  margin-left: 5px;
+}
+
+.modal-form input:focus {
+	border-color: #0c0;
+}
+
+
+.modal-submit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-submit > span {
+	margin: 0 15px;
+}
+
+.signin-btn {
+	padding: 10px 20px;
+	color: #fff;
+	background: #0c0;
+	font-weight: 700;
+	box-shadow: 1px 1px 1px 1px #070;
+	margin-bottom: 2px;
+}
+
+.signin-btn:hover {
+	background: #0b0;
+}
+
+.cancel-btn {
+	font-weight: bold;
+}
+
+.cancel-btn:hover {
+	color: #0b0;
+}
