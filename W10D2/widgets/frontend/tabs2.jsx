@@ -11,7 +11,6 @@ export default function Tabs() {
 
   const tab = tabs[tabIdx];
 
-
   const headers = tabs.map((tab, i) => (
     <li
       key={i}
