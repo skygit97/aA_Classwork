@@ -1,17 +1,20 @@
 Array.prototype.myEach = function(cb) {
-  for (let i = 0; i < this.length; i ++) {
+  for (let i = 0; i < this.length; i++) {
     cb(this[i]);
   }
-};
+}
 
 Array.prototype.myMap = function(cb) {
-  const mapped = [];
-  this.myEach(el => mapped.push(cb(el)));
-  return mapped;
-};
+  let arr = [];
+  this.myEach(el => {
+    arr.push(cb(el))
+  });
 
-let arr = [1,2,3];
-console.log(arr.myMap(el => el * 2));
+  return arr;
+}
+
+// let arr = [1,2,3];
+// console.log(arr.myMap(el => el * 2));
 
 Array.prototype.myReduce = function(cb, initialValue) {
   let arr = this;
@@ -26,5 +29,5 @@ Array.prototype.myReduce = function(cb, initialValue) {
   return result;
 };
 
-console.log([1, 3, 3].myReduce((prod, el) => prod * el));
-console.log([1, 2, 3].myReduce((sum, el) => sum * el));
+// console.log([1, 3, 3].myReduce((prod, el) => prod * el));
+// console.log([1, 2, 3].myReduce((sum, el) => sum * el));
